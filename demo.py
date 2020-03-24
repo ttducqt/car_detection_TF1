@@ -8,8 +8,8 @@ import tensorflow as tf
 from PIL import Image
 
 from object_detection.utils import ops as utils_ops
-from utils import label_map_util
-from utils import visualization_utils as vis_util
+from object_detection.utils import label_map_util
+from object_detection.utils import visualization_utils as vis_util
 
 DATASET="car"
 MODEL_FILE=DATASET+"/frozen_inference_graph.pb"
@@ -212,7 +212,7 @@ def app(video_path, graph):
                 image = cv2.imread(file_path)
                 # print(image)
                 image = get_drawed_image(image, sess, tensor_dict, image_tensor)
-                cv2.imwrite('result/'+file, image)
+                cv2.imwrite(file, image)
 
 if __name__=="__main__":
     graph=load_graph(MODEL_FILE)
